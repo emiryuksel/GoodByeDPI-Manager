@@ -1,6 +1,12 @@
 # GoodByeDPI Manager
 
-**GoodByeDPI Manager** is a lightweight Windows desktop utility (built with **WPF, .NET 8**) that lets you install, run, and remove the [GoodByeDPI](https://github.com/ValdikSS/GoodbyeDPI) service easily — with a single click, no command line required.
+**GoodByeDPI Manager** is a lightweight Windows desktop utility (built with **WPF, .NET 8**) that lets you install, run, and remove the [GoodByeDPI](https://github.com/ValdikSS/GoodbyeDPI) service easily with a single click, no command line required.
+
+---
+
+## ▶️ Tutorial Video
+
+> Tutorial video will be available soon.
 
 ---
 
