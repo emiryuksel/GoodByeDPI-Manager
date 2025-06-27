@@ -12,7 +12,7 @@
 
 ## 📥 Download
 
-> 🔗 [Download GoodByeDPI_Manager_v1.0.0.zip](https://github.com/YOUR_USERNAME/YOUR_REPO/releases/latest)
+> 🔗 [Download GoodByeDPI_Manager_v1.0.0.zip](https://github.com/emiryuksel/GoodByeDPI-Manager/releases/download/v1.0.0/GoodByeDPI-Manager_v1.0.0.zip)
 
 - Unzip the file  
 - Run `GoodByeDPI-Manager.exe`  
