@@ -10,13 +10,13 @@
 
 ---
 
-## 📥 Download
+## 🚀 How To Install
 
-> 🔗 [Download GoodByeDPI_Manager_v1.0.0.zip](https://github.com/emiryuksel/GoodByeDPI-Manager/releases/download/v1.0.0/GoodByeDPI-Manager_v1.0.0.zip)
+> 🔗 [Download GoodByeDPI-Manager_v1.0.1.zip](https://github.com/emiryuksel/GoodByeDPI-Manager/releases/download/v1.0.1/GoodByeDPI-Manager_v1.0.1.zip)
 
 - Unzip the file  
 - Run `GoodByeDPI-Manager.exe`  
-- Admin rights may be required
+- Admin rights are required.
 
 ---
 
@@ -75,9 +75,8 @@ All scripts are bundled and auto-executed via the app.
 
 ## 🎨 UI Style
 
-- Rounded corner UI  
-- Inspired by Apple minimalism  
-- Light theme, no external dependencies
+- Clean, rounded-corner interface.
+- Minimalist light theme with no external dependencie.
 
 ---
 
