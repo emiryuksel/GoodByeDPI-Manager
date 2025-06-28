@@ -9,7 +9,10 @@
         WindowStartupLocation="CenterScreen"
         AllowsTransparency="True"
         WindowStyle="None"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+        SizeChanged="Window_SizeChanged">
+
 
     <Border CornerRadius="10" Background="White" BorderBrush="#E0E0E0" BorderThickness="1">
         <Grid>
@@ -23,22 +26,21 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- App Title -->
-                <TextBlock Text="GoodByeDPI Manager"
+                <!--<TextBlock Text="GoodByeDPI Manager"
                            VerticalAlignment="Center"
                            Margin="12,0,0,0"
                            FontWeight="Bold"
                            FontSize="16"
-                           Foreground="#333"/>
+                           Foreground="#333"/>-->
 
                 <!-- Language Selector -->
                 <ComboBox x:Name="languageSelector"
                           Width="100" Height="26"
                           VerticalAlignment="Center"
-                          Margin="0,0,10,0"
+                          Margin="24,0,224,0"
                           SelectionChanged="languageSelector_SelectionChanged"
-                          Grid.Column="1"
                           Background="#F9F9F9" Foreground="#333"
-                          BorderBrush="#CCC">
+                          BorderBrush="#CCC" RenderTransformOrigin="0.16,0.587">
                     <ComboBoxItem Tag="en" Content="English"/>
                     <ComboBoxItem Tag="tr" Content="Türkçe"/>
                 </ComboBox>

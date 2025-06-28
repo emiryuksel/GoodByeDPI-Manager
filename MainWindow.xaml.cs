@@ -6,6 +6,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media; // ✨ EKLENDİ
 using GoodByeDPI_Manager.Resources;
 
 namespace GoodByeDPIManager
@@ -18,11 +19,15 @@ namespace GoodByeDPIManager
 
             InitializeComponent();
 
+            // Köşe yuvarlama olaylarını bağla
+            this.Loaded += Window_Loaded;
+            this.SizeChanged += Window_SizeChanged;
+
             // Dili başlatırken ComboBox'ta işaretle
             string currentCulture = Thread.CurrentThread.CurrentUICulture.TwoLetterISOLanguageName;
             foreach (ComboBoxItem item in languageSelector.Items)
             {
-                if (item.Tag.ToString() == currentCulture)
+                if (item.Tag?.ToString() == currentCulture)
                 {
                     languageSelector.SelectedItem = item;
                     break;
@@ -50,11 +55,11 @@ namespace GoodByeDPIManager
 
         private void RunScript(string scriptName)
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, scriptName);
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BinTools", scriptName);
 
             if (!File.Exists(path))
             {
-                MessageBox.Show("Script not found: " + scriptName);
+                MessageBox.Show("Script not found: " + path);
                 return;
             }
 
@@ -69,13 +74,14 @@ namespace GoodByeDPIManager
                 Process.Start(psi);
 
                 txtStatus.Text = Strings.StatusActive;
-                txtStatus.Foreground = System.Windows.Media.Brushes.Green;
+                txtStatus.Foreground = Brushes.Green;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An error occurred:\n" + ex.Message);
             }
         }
+
 
         private void btnServiceInstall_Click(object sender, RoutedEventArgs e)
         {
@@ -91,16 +97,19 @@ namespace GoodByeDPIManager
         {
             RunScript("service_remove.cmd");
             txtStatus.Text = Strings.StatusRemoved;
-            txtStatus.Foreground = System.Windows.Media.Brushes.DarkRed;
+            txtStatus.Foreground = Brushes.DarkRed;
         }
 
         private void languageSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (languageSelector.SelectedItem is ComboBoxItem selectedItem)
             {
-                string cultureCode = selectedItem.Tag.ToString();
-                Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureCode);
-                SetUIText();
+                string? cultureCode = selectedItem.Tag?.ToString();
+                if (!string.IsNullOrEmpty(cultureCode))
+                {
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo(cultureCode);
+                    SetUIText();
+                }
             }
         }
 
@@ -113,5 +122,27 @@ namespace GoodByeDPIManager
             btnServiceRemove.Content = Strings.RemoveServiceButton;
             txtStatus.Text = Strings.StatusInactive;
         }
+
+        // ✨ EKLENEN KISIM: Yuvarlak köşe clip işlemi
+        private void ApplyRoundedCorners()
+        {
+            double radius = 10.0; // Border'daki CornerRadius ile birebir olmalı
+            if (this.ActualWidth > 0 && this.ActualHeight > 0)
+            {
+                this.Clip = new RectangleGeometry(new Rect(0, 0, this.ActualWidth, this.ActualHeight), radius, radius);
+            }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ApplyRoundedCorners();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            ApplyRoundedCorners();
+        }
+
+
     }
 }
