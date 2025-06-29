@@ -6,7 +6,11 @@
 
 ## ▶️ Tutorial Video
 
-> Tutorial video will be available soon.
+<a href="https://youtu.be/CTML3qONX_c">
+  <img src="https://img.youtube.com/vi/CTML3qONX_c/maxresdefault.jpg"
+       alt="Watch the tutorial"
+       width="720" />
+</a>
 
 ---
 
